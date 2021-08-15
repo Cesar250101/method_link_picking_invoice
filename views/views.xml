@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+    <!-- model.name inherit form view -->
+    <record id="method_link_picking_invoice.view_picking_form" model="ir.ui.view">
+      <field name="name">method.link.picking.invoice.view.picking.form</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[@name='button_box']" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
+                            <field name="invoice_count" widget="statinfo" string="Factura"/>
+                        </button>
+                    </div>
+        </xpath>        
+      </field>
+    </record>
+
+
+  </data>
+</odoo>
