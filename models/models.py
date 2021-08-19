@@ -8,7 +8,7 @@ class Picking(models.Model):
     _inherit = 'stock.picking'
 
     invoice_id = fields.Integer(string="N° Factura", required=False,compute='_compute_invoice_id' )
-    invoice_count=fields.Integer(string="Conteo Facturas")
+    invoice_count=fields.Integer(string="Conteo Facturas",compute='_compute_invoice_id')
 
     @api.one
     @api.depends('origin')
