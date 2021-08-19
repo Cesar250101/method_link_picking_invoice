@@ -14,9 +14,10 @@ class Picking(models.Model):
     @api.depends('origin')
     def _compute_invoice_id(self):
         factura_id=self.env['account.invoice'].search([('origin','=',self.origin)],limit=1).id
-        self.invoice_id=factura_id
-        self.invoice_count=1
-        return True
+        if factura_id:
+            self.invoice_id=factura_id
+            self.invoice_count=1
+            return True
     
     
     def action_view_invoice(self):
